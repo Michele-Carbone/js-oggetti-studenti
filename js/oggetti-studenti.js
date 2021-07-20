@@ -23,15 +23,24 @@ Consigli del giorno:
 //variabile studente
 var student = {
     nome: 'Michele',
-    cognome: 'Carbone',
-    age: 29,
+    cognome: 'Cardone',
+    age: 79,
 };
 
-console.log(student);
+//console.log(student);
+var display = document.getElementById('display');
+
+var content = '';
+for (var key in student) {
+    //console.log(student[key]); //stampo il valore
+    content += '<div><strong>' + key + ':<strong> ' + student[key] + '</div>';
+
+}
+
+display.innerHTML = content;
 
 
-var team = [];
-console.log(team);
+
 
 
 
