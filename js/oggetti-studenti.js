@@ -74,14 +74,79 @@ var content = '';
 for (var i = 0; i < students.length; i++) {
 
     var currentStudents = students[i];
-    content += '<li><div><strong>Nome: <strong> ' + currentStudents.nome + '</div>' + '<span><strong>Cognome: <strong> ' + currentStudents.cognome + '</li>' + '<div><strong>Età: <strong> ' + currentStudents.age;
+    //content += '<li><div><strong>Nome: <strong> ' + currentStudents.nome + '</div>' + '<span><strong>Cognome: <strong> ' + currentStudents.cognome + '</li>' + '<div><strong>Età: <strong> ' + currentStudents.age;
+    content += '<li>';
+    for (var keys in currentStudents) {
+        content += '<div><strong><strong> ' + keys + ': </strong>' + currentStudents[keys] + '</div>';
+    }
 
 
-
-
-
+    content += '</li>'
 }
 displayStudents.innerHTML = content;
 
+printObjectArray(students, displayStudents);
+
+// chiedo i dati del nuovo studente
+var newName = getWordUser('Inserisci il nome ')
+
+var newSurname = getWordUser('Inserisci il cognome ');
+
+var newAge = getNumberUser('Inserisci la sua età ');
 
 
+
+
+//creo un Array per il nuovo studente
+var newStudent = {
+    nome: newName,
+    cognome: newSurname,
+    age: newAge,
+}
+
+//aggiungiamo i dati del nuovo utente all'interno dell Array degli studenti
+students.push(newStudent);
+
+printObjectArray(students, displayStudents);
+
+// funzione
+function printObjectArray(objectArray, targetElement) {
+
+    var content = '';
+
+    for (var i = 0; i < objectArray.length; i++) {
+
+        var currentItem = objectArray[i];
+
+        content += '<li>';
+        for (var keys in currentItem) {
+            content += '<div><strong><strong> ' + keys + ': </strong>' + currentItem[keys] + '</div>';
+        }
+
+
+        content += '</li>'
+    }
+
+    targetElement.innerHTML = content;
+}
+
+
+//function die prompt sui dati dello studente
+function getWordUser(question) {
+    var word = prompt(question);
+    while (!word || word.trim() === '') {
+        word = prompt(question);
+    }
+
+    return word;
+}
+
+//function die prompt sui dati dello studente
+function getNumberUser(question) {
+    var num = prompt(question);
+    while (!num || isNaN(num) || num.trim() === '') {
+        num = prompt(question);
+    }
+
+    return num;
+}
