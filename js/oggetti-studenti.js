@@ -20,7 +20,7 @@ Consigli del giorno:
 
 
 
-//variabile studente
+//Array studente
 var student = {
     nome: 'Michele',
     cognome: 'Cardone',
@@ -42,10 +42,46 @@ display.innerHTML = content;
 
 
 
+//Array studenti
+var students = [
+    {
+        nome: 'Paolo',
+        cognome: 'Merendina',
+        age: 45,
+    },
+    {
+        nome: 'Mino',
+        cognome: 'Padella',
+        age: 65,
+    },
+    {
+        nome: 'Nino',
+        cognome: 'Calabrese',
+        age: 29,
+    },
+    {
+        nome: 'Giovanni',
+        cognome: 'Pedrone',
+        age: 18,
+    },
+]
+
+
+var displayStudents = document.getElementById('display-students');
+//ciclo l'Array Students 
+var content = '';
+
+for (var i = 0; i < students.length; i++) {
+
+    var currentStudents = students[i];
+    content += '<li><div><strong>Nome: <strong> ' + currentStudents.nome + '</div>' + '<span><strong>Cognome: <strong> ' + currentStudents.cognome + '</li>' + '<div><strong>Età: <strong> ' + currentStudents.age;
 
 
 
 
+
+}
+displayStudents.innerHTML = content;
 
 
 
